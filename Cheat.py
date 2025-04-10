@@ -19,3 +19,5 @@ def Parser(input):
             ]
             FinalDictionary[Questions] = CorrectAnswers
     return FinalDictionary
+
+print(Parser(RequestQuestion()))

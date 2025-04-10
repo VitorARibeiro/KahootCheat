@@ -1,0 +1,82 @@
+/* Dark mode background and text colors */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    color: #bb86fc;
+    margin-top: 20px;
+}
+
+/* Input and button styling */
+label {
+    display: block;
+    text-align: center;
+    margin: 20px 0 10px;
+    font-size: 1.2em;
+}
+
+input[type="text"] {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #121212;
+    background-color: #bb86fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9a67ea;
+}
+
+/* Results styling */
+#results {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#results div {
+    margin-bottom: 15px;
+}
+
+#results strong {
+    color: #bb86fc;
+}
+
+#results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#results li {
+    background-color: #2c2c2c;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #e0e0e0;
+}
