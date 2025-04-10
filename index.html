@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kahoot Cheat</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>Kahoot Cheat</h1>
+    <label for="gameId">Indique o Game-ID:</label>
+    <input type="text" id="gameId">
+    <button id="fetchQuestions">Fetch Questions</button>
+    <div id="results"></div>
+
+    <script type="module">
+        import { requestQuestion, parser } from './Cheat.js';
+
+        document.getElementById('fetchQuestions').addEventListener('click', async () => {
+            const gameId = document.getElementById('gameId').value;
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Limpa os resultados anteriores
+
+            try {
+                const questions = await requestQuestion(gameId);
+                const parsedQuestions = parser(questions);
+
+                // Exibe as perguntas e respostas no HTML
+                for (const [question, answers] of Object.entries(parsedQuestions)) {
+                    const questionElement = document.createElement('div');
+                    questionElement.innerHTML = `<strong>Question:</strong> ${question}`;
+
+                    const answersElement = document.createElement('ul');
+                    answers.forEach(answer => {
+                        const answerItem = document.createElement('li');
+                        answerItem.textContent = answer;
+                        answersElement.appendChild(answerItem);
+                    });
+
+                    resultsDiv.appendChild(questionElement);
+                    resultsDiv.appendChild(answersElement);
+                }
+            } catch (error) {
+                resultsDiv.textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
