@@ -106,7 +106,8 @@ button:hover {
     padding: 20px; /* Increased padding for better spacing */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 95%; /* Allow the question card to use more width */
+    width: 90%; /* Allow the question card to use more width */
+    max-width: 800px;
     margin: 0 auto; /* Center the question card */
 }
 
