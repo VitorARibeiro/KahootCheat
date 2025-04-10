@@ -25,8 +25,14 @@ The project is hosted on GitHub Pages:
 
 ## 🖼️ Screenshots
 
-### 💻 KahootCheat Interface
+### 💻 KahootCheat Interface Online
 ![imagem](https://github.com/user-attachments/assets/24757db5-feb8-4d95-bb6c-945e8f0ca2f6)
+
+> **Note:** The offline version was built using Python to bypass browser-based CORS restrictions.  
+> This allows more reliable access to the Kahoot API without depending on third-party CORS proxies that might sometimes be down.
+
+### 💻 KahootCheat Interface Offline
+![imagem](https://github.com/user-attachments/assets/91bb86ea-a67d-4fd6-a245-b0d7481b8f78)
 
 
 ### 🔎 How to Find the Game ID
