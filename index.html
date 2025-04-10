@@ -11,7 +11,7 @@
     <label for="gameId">Enter the Game-ID:</label>
     <input type="text" id="gameId">
     <button id="fetchQuestions">Fetch Questions</button>
-    <div id="results"></div>
+    <div id="results" class="grid-container"></div>
 
     <script type="module">
         import { requestQuestion, parser } from './Cheat.js';
@@ -19,26 +19,32 @@
         document.getElementById('fetchQuestions').addEventListener('click', async () => {
             const gameId = document.getElementById('gameId').value;
             const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = ''; // Limpa os resultados anteriores
+            resultsDiv.innerHTML = ''; // Clear previous results
 
             try {
                 const questions = await requestQuestion(gameId);
                 const parsedQuestions = parser(questions);
 
-                // Exibe as perguntas e respostas no HTML
+                // Display all valid questions and answers
                 for (const [question, answers] of Object.entries(parsedQuestions)) {
                     const questionElement = document.createElement('div');
+                    questionElement.classList.add('question-card');
                     questionElement.innerHTML = `<strong>Question:</strong> ${question}`;
 
-                    const answersElement = document.createElement('ul');
-                    answers.forEach(answer => {
-                        const answerItem = document.createElement('li');
-                        answerItem.textContent = answer;
-                        answersElement.appendChild(answerItem);
+                    const answersContainer = document.createElement('div');
+                    answersContainer.classList.add('grid-container'); // Use grid-container for 2x2 layout
+
+                    answers.forEach(choice => {
+                        const answerItem = document.createElement('div'); // Use div for grid layout
+                        answerItem.textContent = choice.answer;
+                        if (choice.correct) {
+                            answerItem.classList.add('correct-answer'); // Highlight correct answers in green
+                        }
+                        answersContainer.appendChild(answerItem);
                     });
 
+                    questionElement.appendChild(answersContainer);
                     resultsDiv.appendChild(questionElement);
-                    resultsDiv.appendChild(answersElement);
                 }
             } catch (error) {
                 resultsDiv.textContent = `Error: ${error.message}`;

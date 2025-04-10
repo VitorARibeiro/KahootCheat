@@ -54,7 +54,7 @@ button:hover {
 #results {
     margin: 20px auto;
     padding: 20px;
-    max-width: 600px;
+    max-width: 1000px; /* Increased from 800px to 1000px */
     background-color: #1e1e1e;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -79,4 +79,39 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     color: #e0e0e0;
+}
+
+/* Grid container for 2x2 layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for 2x2 layout */
+    gap: 20px; /* Increased gap for better spacing */
+    margin-top: 10px;
+    max-width: 100%; /* Allow grid to use the full width of the parent container */
+}
+
+.grid-container div {
+    background-color: #2c2c2c; /* Ensure consistent background for answers */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: #e0e0e0; /* Ensure text color is visible */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add slight shadow for better visibility */
+    
+}
+
+/* Question card styling */
+.question-card {
+    background-color: #1e1e1e;
+    padding: 20px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 95%; /* Allow the question card to use more width */
+    margin: 0 auto; /* Center the question card */
+}
+
+/* Correct answer styling */
+.correct-answer {
+    color: #4caf50 !important; /* Força a aplicação da cor verde */
+    font-weight: bold; /* Mantém o bold para maior destaque */
 }

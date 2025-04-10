@@ -9,12 +9,13 @@ export function parser(input) {
     const finalDictionary = {};
     input.forEach(question => {
         const questionText = question.question;
-        if (questionText) {
+        if (questionText) { // Ignora perguntas sem texto
             const choices = question.choices || [];
-            const correctAnswers = choices
-                .filter(option => option.correct === true)
-                .map(option => option.answer);
-            finalDictionary[questionText] = correctAnswers;
+            const answers = choices.map(option => ({
+                answer: option.answer,
+                correct: option.correct || false // Marca se a resposta é correta
+            }));
+            finalDictionary[questionText] = answers;
         }
     });
     return finalDictionary;
